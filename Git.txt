@@ -86,13 +86,53 @@ Actually we need to create a branch and work on it but not directly on master
   -->here * means that i am currently on that directory
 
 
-If i want to work on created branch i need to checkout 
+**If i want to work on created branch i need to checkout 
   git checkout <branchName>
 
   Eg:
   user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
    $ git checkout GitDocs
    Switched to branch 'GitDocs'
+  
+  user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (GitDocs)
+  $ git add -A
+  
+
+  user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (GitDocs)
+  $ git commit -m "Code commit in first created branch"
+  [GitDocs 035e851] Code commit in first created branch
+  2 files changed, 257 insertions(+), 42 deletions(-)
+  create mode 100644 Git_Image3.PNG
+
+**If you want to push your branch[GitDocs] to repository
+  git push -u origin GitDocs
+  
+  Eg:
+  user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (GitDocs)
+  $ git push -u origin GitDocs
+  Enumerating objects: 6, done.
+  Counting objects: 100% (6/6), done.
+  Delta compression using up to 2 threads
+  Compressing objects: 100% (4/4), done.
+  Writing objects: 100% (4/4), 43.90 KiB | 6.27 MiB/s, done.
+  Total 4 (delta 1), reused 0 (delta 0)
+  remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+  remote:
+  remote: Create a pull request for 'GitDocs' on GitHub by visiting:
+  remote:      https://github.com/varma369/Docs/pull/new/GitDocs
+  remote:
+  To https://github.com/varma369/Docs.git
+  * [new branch]      GitDocs -> GitDocs
+  Branch 'GitDocs' set up to track remote branch 'GitDocs' from 'origin'
+
+To see all the branches
+  git branch -a
+
+In future if we want to get the code or push we can just give
+  git pull and push instead of "git push -u origin GitDocs"
+
+****Merging a branch with master[this will be done after testing]
+
 
 
 Note :All untracked file will be there in working directory,which are then staged for commit
