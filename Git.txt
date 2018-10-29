@@ -1,86 +1,223 @@
+
+
+--------------------------------------------------------------------------Sites to Learn----------------------------------------------------------------
+https://www.atlassian.com/git/tutorials/setting-up-a-repository
+https://help.github.com/
+
+
+ 
+
+https://www.youtube.com/watch?v=gAWiXbT599E-------------->Also check for adding SSH Key
+https://www.youtube.com/watch?v=J_Clau1bYco
+https://www.youtube.com/watch?v=HVsySz-h9r4
+
+Git distributed VCS
+what is Central vs Distributed VCS
+
+---------------------------------------------------------------------------------Commands start---------------------------------------------------------
+Check version
+   git --version
+
+set Config values
+   git config --global user.name "Mantena Phanindra venkata Varma"
+   git config --global user.email varma19.manthena@gmail.com
+   git config --list
+
+Need Help
+   git help <verb>  eg:git help config or git config help
+
+Initializing  a repository from existing code
+   git init
+
+before commit 
+   git status
+   (if there are any untracked files a stage it using "git add '<fileName>'" or "git add ."[for all the files to stage]
+
+If we want other's not to get the some of the files that i checked in when others checked out,create .gitignore file using below command)
+   touch .gitignore
+   (Now in created gitignore file add the files which you dont want to get downloaded when others checked out the code)
+
+Add files to staging Area
+   git add '<fileName>' or git add -A
+
+Remove files from staging area
+   git reset '<fileName>' or git reset[all the files which are staged will be removed from staging area]
+
+
+commit
+   git commit -m '<Comments>'
+
+to see our last commit
+   git log
+
+
+cloning a remote repository
+   git clone <url> <where to clone> or git clone <url>[will clone to current directory to which git is pointing]
+
+
+Vieving information about remote repository
+  git remote -v 
+  git branch -a
+
+Changes made to the code
+  git diff
+
+There might be multiple developers working on the same project and since the last time after you clone there might be commits added by other developers.
+Inorder to get them before we add our changes and commit we need to use below command 
+  git pull origin master
+
+
+To push the commited code 
+  git push origin master
+
+
+Actually we need to create a branch and work on it but not directly on master
+  git branch <branchName>
+
+  Eg:
+  user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+  $ git branch GitDocs
+
+  user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+  $ git branch
+  GitDocs
+  * master
+
+  -->here * means that i am currently on that directory
+
+
+If i want to work on created branch i need to checkout 
+  git checkout <branchName>
+
+  Eg:
+  user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+   $ git checkout GitDocs
+   Switched to branch 'GitDocs'
+
+
+Note :All untracked file will be there in working directory,which are then staged for commit
+-----
+i.e files in working directory-->Stage-->commit
+   
+
+
 1)git init -->intitialize the repository in the current folder
   
-   you can see hidden folder .git where git store everything including change sets,branches and so on.At any time you can
-delete this folder to delete the repository
+      you can see hidden folder .git where git store everything including change sets,branches and so on.At any time you can
+   delete this folder to delete the repository
 
-eg:
-----
-user@user-PC MINGW64 /e/Workspace_Hub/gitDemo
-$ git init
-Initialized empty Git repository in E:/Workspace_Hub/gitDemo/.git/
+   eg:
+   ----
+   user@user-PC MINGW64 /e/Workspace_Hub/gitDemo
+   $ git init
+   Initialized empty Git repository in E:/Workspace_Hub/gitDemo/.git/
 
 
 
 2)git status -->to track the files whether there are any new files or changes in the existing files
 
 
-Eg:
----
+   Eg:
+   ---
    $ git status
-On branch master
+   On branch master
 
-No commits yet
+      No commits yet
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
+   Untracked files:
+   (use "git add <file>..." to include in what will be committed)
 
         Commands.txt
 
-nothing added to commit but untracked files present (use "git add" to track)
+   nothing added to commit but untracked files present (use "git add" to track)
 
 
----
-The above is telling Command.txt is untracked
+   ---------
+   The above is telling Command.txt is untracked
 
 
 3)Lets fix this by   "git add Commands.txt"
 
-then type the below command 
+  then type the below command 
 
   git status
 
-Eg:
----
+  Eg:
+   ---
 
-user@user-PC MINGW64 /e/Workspace_Hub/gitDemo (master)
-$ git add Commands.txt
+  user@user-PC MINGW64 /e/Workspace_Hub/gitDemo (master)
+  $ git add Commands.txt
 
-user@user-PC MINGW64 /e/Workspace_Hub/gitDemo (master)
-$ git status
-On branch master
+  user@user-PC MINGW64 /e/Workspace_Hub/gitDemo (master)
+  $ git status
+  On branch master
 
-No commits yet
+  No commits yet
 
-Changes to be committed:
+  Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
 
         new file:   Commands.txt
 
------
+  -----
+  Now the file is ready to commit and this is called staging
 
-Now the file is ready to commit and this is called staging
+  Now if you change content in the file and type git status
+  and you will see both tracked and untracked for commands.txt
+  but why?
 
-Now if you change content in the file and type git status
-and you will see both tracked and untracked for commands.txt
-but why?
+  git had only statged file which is at that time i.e tracked and untracked for the latest added change i.e untracked and 
+  now if you commit it will not contain latest change ,in order to have recent change "git add Commands.txt"
 
-git had only statged file which is at that time i.e tracked and untracked for the latest added change i.e untracked and 
-now if you commit it will not contain latest change ,in order to have recent change "git add Commands.txt"
+  i.e when ever something changes we need to stage that file so that changes will be reflected when they are comitted 
 
-i.e when ever something changes we need to stage that file so that changes will be reflected when they are comitted 
+-----------------------------------------------------------------End--------------------------------------------------------------------------------------
+
 
 
 
 -------------------------------------------------Start of Setting up Git repository-----------------------------------------------------------------------
-Setting up a repository in git Hub
--------------------------------------------------------------------------------------------------------------------------
-1)Global setup[tells who has commited the change]
 
-git config --global user.name "Mantena Phanindra venkata Varma"
-git config --global user.email varma19.manthena@gmail.com
+--->Git stores configuration options in three separate files, which lets you scope options to individual repositories 
+    (local), user (Global), or the entire system (system):
 
-2)Now i want to create local repository for my project and commit to git
-go to the folder-->E:\Workspace_Hub\React_POC\react_js_assignment and right click git bash
+       Local: <repo>/.git/config – Repository-specific settings.
+       Global: /.gitconfig – User-specific settings. This is where options set with the --global flag are stored.
+       System: $(prefix)/etc/gitconfig – System-wide settings.
+
+
+
+      git config --global user.name <name>
+      Define the author name to be used for all commits by the current user.
+
+      Adding the --local option or not passing a config level option at all, will set the user.name for the current local repository.
+
+      git config --local user.email <email>
+      Define the author email to be used for all commits by the current local repository
+
+      git config --global alias.<alias-name> <git-command>
+      Create a shortcut for a Git command. This is a powerful utility to create custom shortcuts for commonly used git commands. A simplistic example would be:
+
+      git config --global alias.ci commit
+      This creates a ci command that you can execute as a shortcut to git commit. To learn more about git aliases visit the git config page.
+
+      git config --system core.editor <editor>
+      Define the text editor used by commands like git commit for all users on the current machine. The <editor> argument should be the command that 
+      launches the desired editor (e.g., vi). 
+      This example introduces the --system option. The --system option will set the configuration for the entire system, meaning all users and repos 
+      on a machine. For more detailed information on configuration levels visit the git config page.
+
+      git config --global --edit
+      Open the global configuration file in a text editor for manual editing. An in-depth guide on how to configure a text editor for git to use can
+      be found on the Git config page.
+
+    1)Global setup[tells who has commited the change]
+
+      git config --global user.name "Mantena Phanindra venkata Varma"
+      git config --global user.email varma19.manthena@gmail.com
+
+    2)Now i want to create local repository for my project and commit to git
+      go to the folder-->E:\Workspace_Hub\React_POC\react_js_assignment and right click git bash
 
 Then do the below init,stage and commit
 ------------------------------------------------------------------------------------------------------------------------
@@ -264,7 +401,7 @@ The below command will map remote repository at <remote_repo_url> to a ref in yo
 git remote add <remote_name> <remote_repo_url>
 
 origin is the branch that i have on my local
-----------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 
 
 user@user-PC MINGW64 /e/Workspace_Hub/React_POC/react_js_assignment (master)
@@ -297,6 +434,84 @@ To https://github.com/varma369/React.js_POC_1.git
 
 
 -----------------------------End of Setting up repository for Git----------------------------------------------------------
+
+
+
+
+
+-----------------------------Another Example for the above-----------------------------------------------------------------
+user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+$ git add .
+
+user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   Capture.PNG
+        new file:   Capture1.PNG
+        new file:   Commands.txt
+
+
+user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+$ git add .
+
+user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   Git.txt
+        new file:   Git_Image1.PNG
+        new file:   Git_image2.PNG
+
+
+user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+$ git commit -m "All About Git First Commit"
+[master (root-commit) 0c12b4a] All About Git First Commit
+ 3 files changed, 316 insertions(+)
+ create mode 100644 Git.txt
+ create mode 100644 Git_Image1.PNG
+ create mode 100644 Git_image2.PNG
+
+user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+$ git push origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+$ git remote add origin https://github.com/varma369/Docs.git
+
+user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 204.98 KiB | 10.25 MiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/varma369/Docs/pull/new/master
+remote:
+To https://github.com/varma369/Docs.git
+ * [new branch]      master -> master
+
+
+
+
+-------------------------------------------------End------------------------------------------------------------------------------
 
 
 
