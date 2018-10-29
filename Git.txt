@@ -219,11 +219,15 @@ In future if we want to get the code or push we can just give
 
 
 
-Note :All untracked file will be there in working directory,which are then staged for commit
------
-i.e files in working directory-->Stage-->commit
-   
+Note 
+---------------------------------------
+1) All untracked file will be there in working directory,which are then staged for commit
+   i.e files in working directory-->Stage-->commit
+2) If we say git commit only it will open VM where we need to type comments and the esc key to
+ exit insert then type :wq which will rewrite the file and exit vm
 
+
+------------------------------------------
 
 1)git init -->intitialize the repository in the current folder
   
