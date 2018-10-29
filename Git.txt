@@ -1,0 +1,316 @@
+1)git init -->intitialize the repository in the current folder
+  
+   you can see hidden folder .git where git store everything including change sets,branches and so on.At any time you can
+delete this folder to delete the repository
+
+eg:
+----
+user@user-PC MINGW64 /e/Workspace_Hub/gitDemo
+$ git init
+Initialized empty Git repository in E:/Workspace_Hub/gitDemo/.git/
+
+
+
+2)git status -->to track the files whether there are any new files or changes in the existing files
+
+
+Eg:
+---
+   $ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Commands.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
+---
+The above is telling Command.txt is untracked
+
+
+3)Lets fix this by   "git add Commands.txt"
+
+then type the below command 
+
+  git status
+
+Eg:
+---
+
+user@user-PC MINGW64 /e/Workspace_Hub/gitDemo (master)
+$ git add Commands.txt
+
+user@user-PC MINGW64 /e/Workspace_Hub/gitDemo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   Commands.txt
+
+-----
+
+Now the file is ready to commit and this is called staging
+
+Now if you change content in the file and type git status
+and you will see both tracked and untracked for commands.txt
+but why?
+
+git had only statged file which is at that time i.e tracked and untracked for the latest added change i.e untracked and 
+now if you commit it will not contain latest change ,in order to have recent change "git add Commands.txt"
+
+i.e when ever something changes we need to stage that file so that changes will be reflected when they are comitted 
+
+
+
+-------------------------------------------------Start of Setting up Git repository-----------------------------------------------------------------------
+Setting up a repository in git Hub
+-------------------------------------------------------------------------------------------------------------------------
+1)Global setup[tells who has commited the change]
+
+git config --global user.name "Mantena Phanindra venkata Varma"
+git config --global user.email varma19.manthena@gmail.com
+
+2)Now i want to create local repository for my project and commit to git
+go to the folder-->E:\Workspace_Hub\React_POC\react_js_assignment and right click git bash
+
+Then do the below init,stage and commit
+------------------------------------------------------------------------------------------------------------------------
+
+user@user-PC MINGW64 /e/Workspace_Hub/React_POC/react_js_assignment
+$ git init
+Initialized empty Git repository in E:/Workspace_Hub/React_POC/react_js_assignment/.git/
+
+user@user-PC MINGW64 /e/Workspace_Hub/React_POC/react_js_assignment (master)
+$ ls
+config/        package.json       public/    scripts/
+node_modules/  package-lock.json  README.md  src/
+
+user@user-PC MINGW64 /e/Workspace_Hub/React_POC/react_js_assignment (master)
+$ git add .
+warning: LF will be replaced by CRLF in .gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/env.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/jest/cssTransform.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/jest/fileTransform.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/paths.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/polyfills.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/webpack.config.dev.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/webpack.config.prod.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/webpackDevServer.config.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in package-lock.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in package.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/index.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/manifest.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in scripts/build.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in scripts/start.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in scripts/test.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/App.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/App.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/App.test.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/components/InputBox/Input.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/components/Layout/Layout.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/index.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/index.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/registerServiceWorker.js.
+The file will have its original line endings in your working directory
+
+user@user-PC MINGW64 /e/Workspace_Hub/React_POC/react_js_assignment (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   .gitignore
+        new file:   README.md
+        new file:   config/env.js
+        new file:   config/jest/cssTransform.js
+        new file:   config/jest/fileTransform.js
+        new file:   config/paths.js
+        new file:   config/polyfills.js
+        new file:   config/webpack.config.dev.js
+        new file:   config/webpack.config.prod.js
+        new file:   config/webpackDevServer.config.js
+        new file:   package-lock.json
+        new file:   package.json
+        new file:   public/UserData.json
+        new file:   public/favicon.ico
+        new file:   public/index.html
+        new file:   public/manifest.json
+        new file:   scripts/build.js
+        new file:   scripts/start.js
+        new file:   scripts/test.js
+        new file:   src/App.css
+        new file:   src/App.js
+        new file:   src/App.test.js
+        new file:   src/assets/Logo.jpg
+        new file:   src/components/Button/Button.css
+        new file:   src/components/Button/Button.js
+        new file:   src/components/Clock/Clock.js
+        new file:   src/components/Footer/Footer.css
+        new file:   src/components/Footer/Footer.js
+        new file:   src/components/Header/Header.css
+        new file:   src/components/Header/Header.js
+        new file:   src/components/InputBox/Input.css
+        new file:   src/components/InputBox/Input.js
+        new file:   src/components/Layout/Layout.js
+        new file:   src/components/Login/Login.css
+        new file:   src/components/Login/Login.js
+        new file:   src/components/Logo/Logo.css
+        new file:   src/components/Logo/Logo.js
+        new file:   src/containers/Dashboard/Dashboard.css
+        new file:   src/containers/Dashboard/Dashboard.js
+        new file:   src/hoc/Auxilary.js
+        new file:   src/index.css
+        new file:   src/index.js
+        new file:   src/registerServiceWorker.js
+        new file:   src/store/reducer.js
+
+
+
+user@user-PC MINGW64 /e/Workspace_Hub/React_POC/react_js_assignment (master)
+$ git commit -m 'first Commit'
+[master (root-commit) 2ac6c81] first Commit
+ 44 files changed, 14427 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 config/env.js
+ create mode 100644 config/jest/cssTransform.js
+ create mode 100644 config/jest/fileTransform.js
+ create mode 100644 config/paths.js
+ create mode 100644 config/polyfills.js
+ create mode 100644 config/webpack.config.dev.js
+ create mode 100644 config/webpack.config.prod.js
+ create mode 100644 config/webpackDevServer.config.js
+ create mode 100644 package-lock.json
+ create mode 100644 package.json
+ create mode 100644 public/UserData.json
+ create mode 100644 public/favicon.ico
+ create mode 100644 public/index.html
+ create mode 100644 public/manifest.json
+ create mode 100644 scripts/build.js
+ create mode 100644 scripts/start.js
+ create mode 100644 scripts/test.js
+ create mode 100644 src/App.css
+ create mode 100644 src/App.js
+ create mode 100644 src/App.test.js
+ create mode 100644 src/assets/Logo.jpg
+ create mode 100644 src/components/Button/Button.css
+ create mode 100644 src/components/Button/Button.js
+ create mode 100644 src/components/Clock/Clock.js
+ create mode 100644 src/components/Footer/Footer.css
+ create mode 100644 src/components/Footer/Footer.js
+ create mode 100644 src/components/Header/Header.css
+ create mode 100644 src/components/Header/Header.js
+ create mode 100644 src/components/InputBox/Input.css
+ create mode 100644 src/components/InputBox/Input.js
+ create mode 100644 src/components/Layout/Layout.js
+ create mode 100644 src/components/Login/Login.css
+ create mode 100644 src/components/Login/Login.js
+ create mode 100644 src/components/Logo/Logo.css
+ create mode 100644 src/components/Logo/Logo.js
+ create mode 100644 src/containers/Dashboard/Dashboard.css
+ create mode 100644 src/containers/Dashboard/Dashboard.js
+ create mode 100644 src/hoc/Auxilary.js
+ create mode 100644 src/index.css
+ create mode 100644 src/index.js
+ create mode 100644 src/registerServiceWorker.js
+ create mode 100644 src/store/reducer.js
+
+
+
+-->Now the code has been moved to local repository
+
+
+--------------------------------------------------------------------------------------------------------------------
+The below command will map remote repository at <remote_repo_url> to a ref in your local repo under <remote_name>.
+ Once you have mapped the remote repo you can push local branches to it.
+
+git remote add <remote_name> <remote_repo_url>
+
+origin is the branch that i have on my local
+----------------------------------------------------------------------------------------------------------------------------
+
+
+user@user-PC MINGW64 /e/Workspace_Hub/React_POC/react_js_assignment (master)
+$ git remote add origin https://github.com/varma369/React.js_POC_1.git
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+The below command pushes the code from local to remote here master is the default branch creeated in github which is remote
+-----------------------------------------------------------------------------------------------------------------------------
+user@user-PC MINGW64 /e/Workspace_Hub/React_POC/react_js_assignment (master)
+$ git remote add origin https://github.com/varma369/React.js_POC_1.git
+
+user@user-PC MINGW64 /e/Workspace_Hub/React_POC/react_js_assignment (master)
+$ git push origin master
+Enumerating objects: 65, done.
+Counting objects: 100% (65/65), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (59/59), done.
+Writing objects: 100% (65/65), 142.33 KiB | 1.64 MiB/s, done.
+Total 65 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/varma369/React.js_POC_1/pull/new/master
+remote:
+To https://github.com/varma369/React.js_POC_1.git
+ * [new branch]      master -> master
+
+
+
+-----------------------------End of Setting up repository for Git----------------------------------------------------------
+
+
+
+
+
+
+--------------------------------------Downloading the code from Git -->Start<-- ------------------------------------------------------------
+
+user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+$ git clone https://github.com/varma369/React.js_POC_1.git
+Cloning into 'React.js_POC_1'...
+remote: Enumerating objects: 65, done.
+remote: Counting objects: 100% (65/65), done.
+remote: Compressing objects: 100% (58/58), done.
+remote: Total 65 (delta 1), reused 65 (delta 1), pack-reused 0
+Unpacking objects: 100% (65/65), done.
+-------------------------------------------------------------------->End<-----------------------------------------------------------
