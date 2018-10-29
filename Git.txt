@@ -180,7 +180,38 @@ In future if we want to get the code or push we can just give
 
    --->merging branch
    
+     user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (GitDocs)
+     $ git checkout master
+     Switched to branch 'master'
+ 
+     --->Tells the branches that have been merged so far
+     user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+     $ git branch --merged
+     * master
 
+    --->The below will merge the changes in the master
+    user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+    $ git merge GitDocs
+    Updating 0c12b4a..4bcecf7
+    Fast-forward
+    Git.txt        | 392 ++++++++++++++++++++++++++++++++++++++++++++++++++-------
+    Git_Image3.PNG | Bin 0 -> 43330 bytes
+    2 files changed, 350 insertions(+), 42 deletions(-)
+    create mode 100644 Git_Image3.PNG
+
+    user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+    $ git push
+    fatal: The current branch master has no upstream branch.
+    To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+    user@user-PC MINGW64 /e/Workspace_Hub/gitRepos (master)
+    $ git push --set-upstream origin master
+    Total 0 (delta 0), reused 0 (delta 0)
+    To https://github.com/varma369/Docs.git
+    0c12b4a..4bcecf7  master -> master
+    Branch 'master' set up to track remote branch 'master' from 'origin'.
 
 
 
